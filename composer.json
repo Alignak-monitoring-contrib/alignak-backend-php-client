@@ -6,11 +6,13 @@
     "require": {
         "php": ">=5.4.0",
     },
+    "license": "AGPL-3.0",
     "authors": [
         {
             "name": "David Durieux",
             "email": "david@durieux.family",
             "homepage": "http://david.durieux.family",
+            "role": "Developer"
         }
     ],
 }
