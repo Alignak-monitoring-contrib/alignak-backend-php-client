@@ -5,6 +5,7 @@
     "keywords": ["alignak","backend"],
     "require": {
         "php": ">=5.4.0",
+        "rmccue/requests": ">=1.0"
     },
     "license": "AGPL-3.0",
     "authors": [
@@ -14,5 +15,5 @@
             "homepage": "http://david.durieux.family",
             "role": "Developer"
         }
-    ],
+    ]
 }
