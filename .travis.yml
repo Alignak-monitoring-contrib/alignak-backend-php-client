@@ -20,7 +20,7 @@ before_script:
   - phpenv version-name | grep ^5.[34] && echo "apc.enable_cli=1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ; true
 
 script:
-  - vendor/bin/phpunit
+  - vendor/bin/phpunit tests/
   - if [[ "$TRAVIS_PHP_VERSION" == "5.4" ]]; then vendor/bin/phpcs src --standard=style/ruleset.xml -np; fi
 
 
