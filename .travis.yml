@@ -23,3 +23,4 @@ script:
   - vendor/bin/phpunit
   - if [[ "$TRAVIS_PHP_VERSION" == "5.4" ]]; then vendor/bin/phpcs src --standard=style/ruleset.xml -np; fi
 
+
