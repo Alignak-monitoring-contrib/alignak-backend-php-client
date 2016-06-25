@@ -18,7 +18,7 @@ before_install:
   - sudo pip install uwsgi
   - sudo python setup.py install
   - cd test
-  - uwsgi -w alignakbackend:app --socket 0.0.0.0:5000 --protocol=http --enable-threads -p 4 &
+  - uwsgi -w alignakbackend:app --socket 0.0.0.0:5000 --protocol=http --enable-threads -p 2 &
   - cd ..
   - cd ..
 
