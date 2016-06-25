@@ -21,7 +21,7 @@ class GetTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testGetAll() {
-        $abc = new Alignak_Backend_Client('http://127.0.0.1:5000/', 8);
+        $abc = new Alignak_Backend_Client('http://127.0.0.1:5000/', 4);
         $abc->login('admin', 'admin');
 
         $realms = $abc->get('realm');
