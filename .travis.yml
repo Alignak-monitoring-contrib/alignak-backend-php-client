@@ -1,6 +1,8 @@
 language: php
-
 sudo: false
+
+services:
+  - mongodb
 
 php:
   - 5.4
@@ -11,6 +13,11 @@ php:
 
 before_install:
   - composer self-update
+  - git clone https://github.com/Alignak-monitoring-contrib/alignak-backend.git
+  - cd alignak-backend
+  - python setup.py install
+  - uwsgi -w alignakbackend:app --socket 0.0.0.0:5000 --protocol=http --enable-threads -p 4 &
+  - cd ..
 
 install:
   - composer install

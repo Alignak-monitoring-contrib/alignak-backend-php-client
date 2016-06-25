@@ -1,6 +1,6 @@
 <?php
 
-include('src/Client.php');
+include_once 'src/Client.php';
 
 class LoginTest extends PHPUnit_Framework_TestCase {
 

@@ -498,7 +498,7 @@ class Alignak_Backend_Client {
      * @param type $endpoint endpoint (API URL)
      * @param type $headers headers (example: Content-Type)
      */
-    function delete($endpoint, $headers) {
+    function delete($endpoint, $headers=array()) {
         if (is_null($this->token)) {
             if ($this->logger_debug) {
                 error_log("Authentication is required for deleting an object.");

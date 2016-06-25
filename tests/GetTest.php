@@ -1,6 +1,6 @@
 <?php
 
-include('src/Client.php');
+include_once 'src/Client.php';
 
 class GetTest extends PHPUnit_Framework_TestCase {
 
@@ -27,6 +27,7 @@ class GetTest extends PHPUnit_Framework_TestCase {
         $realms = $abc->get('realm');
         $realm_id = $realms['_items'][0]['_id'];
 
+        $abc->delete('command');
         // Add commands
         $data = array('command_line' => 'check_ping', '_realm' => $realm_id);
         for ($i=1; $i <= 2000; $i++) {
@@ -36,7 +37,7 @@ class GetTest extends PHPUnit_Framework_TestCase {
 
         $commands = $abc->get_all('command');
 
-        $this->assertEquals(4, count($commands));
+        $this->assertEquals(2, count($commands));
         $this->assertEquals(2000, count($commands['_items']));
 
 
