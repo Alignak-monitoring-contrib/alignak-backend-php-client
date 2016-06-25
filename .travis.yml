@@ -18,7 +18,9 @@ before_install:
   - sudo pip install Flask==0.10.1
   - sudo pip install uwsgi
   - sudo python setup.py install
+  - cd test
   - uwsgi -w alignakbackend:app --socket 0.0.0.0:5000 --protocol=http --enable-threads -p 4 &
+  - cd ..
   - cd ..
 
 install:
