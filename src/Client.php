@@ -322,6 +322,7 @@ class Alignak_Backend_Client {
                     $params_get[] = $key."=".$value;
                 }
             }
+            $pages_errors = array();
             $params_get_str = implode("&", $params_get);
             $pool = new Pool($this->client,
                     $requests($number_pages, $endpoint, $params_get_str),
@@ -332,12 +333,21 @@ class Alignak_Backend_Client {
                         $resp = json_decode($body->getContents(), true);
                         $items = array_merge($items, $resp['_items']);
                     },
-                    'rejected' => function ($reason, $index) {
+                    'rejected' => function ($reason, $index) use (&$pages_errors) {
                         echo "Rejected...";
                         echo $reason->getMessage();
+                        array_push($pages_errors, $index);
                     }]);
             $promise = $pool->promise();
             $promise->wait();
+            if (count($pages_errors) > 0 AND count($pages_errors) < $number_pages) {
+                // so have pages in error but not all in errors
+                foreach ($pages_errors as $page) {
+                    $params['page'] = $page;
+                    $resp = $this->get($endpoint, $params);
+                    $items = array_merge($items, $resp['_items']);
+                }
+            }
         }
         return array(
             '_items'  => $items,
