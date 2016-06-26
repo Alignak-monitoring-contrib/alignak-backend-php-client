@@ -233,7 +233,7 @@ class Alignak_Backend_Client {
             if ($this->logger_debug) {
                 error_log("backend error: ".$error['code'].", ".$error['message']);
             }
-            throw new Exception(error['message'], error['code']);
+            throw new Exception($error['message'], $error['code']);
         }
         return $resp;
     }
@@ -398,7 +398,7 @@ class Alignak_Backend_Client {
                     }
                 }
             }
-            throw new Exception(error['message'], error['code']);
+            throw new Exception($error['message'], $error['code']);
         }
         return $resp;
     }
