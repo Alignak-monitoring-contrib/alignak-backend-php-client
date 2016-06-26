@@ -309,12 +309,11 @@ class Alignak_Backend_Client {
             $number_pages = ceil($resp['_meta']['total'] / $resp['_meta']['max_results']);
 
             $requests = function ($total, $endpoint, $params_get_str) {
-                $uri = 'command';
                 for ($i = 1; $i <= $total; $i++) {
                     $headers = [
                         'Authorization' => 'Basic '. base64_encode($this->token.':')
                     ];
-                    yield new Request('GET', "http://127.0.0.1:5000/".$endpoint."?".$params_get_str."&page=".$i, $headers);
+                    yield new Request('GET', $this->url_endpoint_root."/".$endpoint."?".$params_get_str."&page=".$i, $headers);
                 }
             };
             $params_get = array();
@@ -334,6 +333,7 @@ class Alignak_Backend_Client {
                         $items = array_merge($items, $resp['_items']);
                     },
                     'rejected' => function ($reason, $index) {
+                        echo "Rejected...";
                         echo $reason->getMessage();
                     }]);
             $promise = $pool->promise();
