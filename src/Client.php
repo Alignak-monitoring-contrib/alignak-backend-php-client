@@ -392,7 +392,7 @@ class Alignak_Backend_Client {
             $error = $resp['_error'];
             $error['message'] = "Url: ".$endpoint.". Message: ".$error['message'];
             if (isset($resp['_issues'])) {
-                foreach (resp['_issues'] as $issue) {
+                foreach ($resp['_issues'] as $issue) {
                     if ($this->logger_debug) {
                         error_log(" - issue: ".$issue.": ".$resp['_issues'][$issue]);
                     }
