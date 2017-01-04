@@ -7,9 +7,16 @@ Alignak Backend PHP client
     :target: https://travis-ci.org/Alignak-monitoring-contrib/alignak-backend-php-client
     :alt: Develop branch build status
 
+.. image:: https://img.shields.io/badge/IRC-%23alignak-1e72ff.svg?style=flat
+    :target: http://webchat.freenode.net/?channels=%23alignak
+    :alt: Join the chat #alignak on freenode.net
+
 .. image:: https://img.shields.io/badge/License-AGPL%20v3-blue.svg
     :target: http://www.gnu.org/licenses/agpl-3.0
     :alt: License AGPL v3
+
+
+**Important note:** this PHP library is still on development and should be considered as a beta version!
 
 
 Documentation
